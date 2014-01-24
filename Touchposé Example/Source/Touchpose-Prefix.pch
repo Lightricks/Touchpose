@@ -12,3 +12,9 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+// Note: Set to 1 when ready to submit app to App Store
+//       Set to 0 for development and testing
+
+// i.e. Disable touches for App Store because of private APIs
+#define AppStoreRelease 0

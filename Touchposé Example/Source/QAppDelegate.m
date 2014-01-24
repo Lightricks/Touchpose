@@ -14,7 +14,10 @@
 
 #import "QAppDelegate.h"
 #import "QViewController.h"
+
+#if !(AppStoreRelease)
 #import "QTouchposeApplication.h"
+#endif
 
 @implementation QAppDelegate
 
@@ -28,10 +31,12 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
 
+#if !(AppStoreRelease)
     // For demo purposes, show the touches even when not mirroring to an external display.
     QTouchposeApplication *touchposeApplication = (QTouchposeApplication *)application;
     touchposeApplication.alwaysShowTouches = YES;
-
+#endif
+    
     return YES;
 }
 

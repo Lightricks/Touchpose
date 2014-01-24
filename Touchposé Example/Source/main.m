@@ -21,8 +21,17 @@ int main(int argc, char *argv[])
 {
     @autoreleasepool
     {
-        return UIApplicationMain(argc, argv,
-                                 NSStringFromClass([QTouchposeApplication class]),
-                                 NSStringFromClass([QAppDelegate class]));
+        int result;
+#if !(AppStoreRelease)
+        // Use the Touch-based UIApplication
+        result = UIApplicationMain(argc, argv,
+                                   NSStringFromClass([QTouchposeApplication class]),
+                                   NSStringFromClass([QAppDelegate class]));
+#else
+        // Use the default UIApplication (don't use touches!)
+        result = UIApplicationMain(argc, argv, nil,
+                                   NSStringFromClass([QAppDelegate class]));
+#endif
+        
     }
 }
