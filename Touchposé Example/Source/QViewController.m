@@ -50,10 +50,13 @@
     
     tapView = [[UIView alloc] initWithFrame:CGRectMake(8, 20, 320 - 16, 100)];
     [self.view addSubview:tapView];
-    tapView.backgroundColor = [UIColor redColor];
+    tapView.backgroundColor = [UIColor cyanColor];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     
     [tapView addGestureRecognizer:tapGesture];
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+    [tapView addGestureRecognizer:panGesture];
     
     UILabel *label = [[UILabel alloc] init];
     label.text = @"Tap Gesture Area";
@@ -66,11 +69,29 @@
     
     static BOOL flag = NO;
     if(flag) {
-        tapView.backgroundColor = [UIColor redColor];
+        tapView.backgroundColor = [UIColor cyanColor];
     } else {
-        tapView.backgroundColor = [UIColor lightGrayColor];
+        tapView.backgroundColor = [UIColor darkGrayColor];
     }
     flag = !flag;
+}
+
+- (void)handlePanGesture:(UIPanGestureRecognizer *)gesture {
+    
+    if(UIGestureRecognizerStateChanged == gesture.state) {
+
+        if(gesture.numberOfTouches == 1) {
+            tapView.backgroundColor = [UIColor yellowColor];
+        } else if(gesture.numberOfTouches == 2) {
+            tapView.backgroundColor = [UIColor orangeColor];
+        } else if(gesture.numberOfTouches > 2) {
+            tapView.backgroundColor = [UIColor redColor];
+        }
+    } else if(UIGestureRecognizerStateEnded == gesture.state ||
+              UIGestureRecognizerStateFailed == gesture.state ||
+              UIGestureRecognizerStateCancelled == gesture.state) {
+        tapView.backgroundColor = [UIColor cyanColor];
+    }
 }
 
 - (void)buttonPressed:(id)sender {
