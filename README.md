@@ -1,11 +1,10 @@
 # Touchposé
 
-![Touchposé with four fingers on the screen.](http://reactionsoftware.com.s3.amazonaws.com/images/Touchpos%C3%A9%20screen%20shot.png)
+![Touchposé with four fingers on the screen.](https://raw2.github.com/PaulSolt/Touchpose/master/Touchpose-iPhone-Screen.png)
 
 Video
 ------
-![Video](http://www.youtube.com/watch?v=rhQCxdVEHgw)
-[![Show Touches with TouchPose](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=rhQCxdVEHgw)
+[![Show Touches with TouchPose](https://raw2.github.com/PaulSolt/Touchpose/master/YoutubeTouchpose.png)](http://www.youtube.com/watch?v=rhQCxdVEHgw)
 
 
 Touchposé is a set of classes for iOS that renders screen touches when
