@@ -14,7 +14,9 @@
 
 #import "QViewController.h"
 
-@interface QViewController ()
+@interface QViewController () {
+    UIView *tapView;
+}
 
 @end
 
@@ -22,12 +24,61 @@
 
 #pragma mark - UIViewController
 
-- (void)loadView
-{
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
     UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Touchposé"]];
     view.backgroundColor = [UIColor whiteColor];
     view.contentMode = UIViewContentModeCenter;
-    self.view = view;
+    view.frame = self.view.frame;
+    [self.view addSubview:view];
+
+        // Create some buttons and gestures to show that touches and the visible touches work
+    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [myButton setTitle:@"Press Button" forState:UIControlStateNormal];
+    [myButton sizeToFit];
+    [self.view addSubview:myButton];
+    [myButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    myButton.center = CGPointMake(320/2, 150);
+
+    UISwitch *mySwitch = [[UISwitch alloc] init];
+    [mySwitch addTarget:self action:@selector(switchToggled:) forControlEvents:UIControlEventValueChanged];
+    mySwitch.center = CGPointMake(320/2, 200);
+    
+    [self.view addSubview:mySwitch];
+    
+    tapView = [[UIView alloc] initWithFrame:CGRectMake(8, 20, 320 - 16, 100)];
+    [self.view addSubview:tapView];
+    tapView.backgroundColor = [UIColor redColor];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    
+    [tapView addGestureRecognizer:tapGesture];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text = @"Tap Gesture Area";
+    [label sizeToFit];
+    [tapView addSubview:label];
+}
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)gesture {
+    NSLog(@"Tap!");
+    
+    static BOOL flag = NO;
+    if(flag) {
+        tapView.backgroundColor = [UIColor redColor];
+    } else {
+        tapView.backgroundColor = [UIColor lightGrayColor];
+    }
+    flag = !flag;
+}
+
+- (void)buttonPressed:(id)sender {
+    NSLog(@"Button Pressed!");
+}
+
+- (void)switchToggled:(id)sender {
+    NSLog(@"Switch Toggled!");
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

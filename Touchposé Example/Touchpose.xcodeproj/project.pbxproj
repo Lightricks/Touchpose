@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		5F022761163F72CE00CF35BD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		5FFDBED414EEEAAB002CBB71 /* Touchposé.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Touchposé.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FFDBED414EEEAAB002CBB71 /* Touchposé.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Touchposé.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFDBED814EEEAAB002CBB71 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FFDBEDA14EEEAAB002CBB71 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FFDBEDC14EEEAAB002CBB71 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,7 +73,7 @@
 		5FFDBED514EEEAAB002CBB71 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5FFDBED414EEEAAB002CBB71 /* Touchposé.app */,
+				5FFDBED414EEEAAB002CBB71 /* Touchposé.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 			);
 			name = "Touchposé";
 			productName = Touchpose;
-			productReference = 5FFDBED414EEEAAB002CBB71 /* Touchposé.app */;
+			productReference = 5FFDBED414EEEAAB002CBB71 /* Touchposé.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -270,6 +270,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Touchpose-Prefix.pch";
 				INFOPLIST_FILE = "Source/Touchpose-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -281,6 +282,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Touchpose-Prefix.pch";
 				INFOPLIST_FILE = "Source/Touchpose-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
