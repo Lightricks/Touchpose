@@ -34,7 +34,7 @@
 #if !(AppStoreRelease)
     // For demo purposes, show the touches even when not mirroring to an external display.
     QTouchposeApplication *touchposeApplication = (QTouchposeApplication *)application;
-    touchposeApplication.alwaysShowTouches = YES;
+    touchposeApplication.alwaysShowTouches = YES; // Generally we want NO, but verify it works first
 #endif
     
     return YES;
