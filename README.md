@@ -2,6 +2,11 @@
 
 ![Touchposé with four fingers on the screen.](http://reactionsoftware.com.s3.amazonaws.com/images/Touchpos%C3%A9%20screen%20shot.png)
 
+Video
+------
+![Video](http://www.youtube.com/watch?v=rhQCxdVEHgw)
+
+
 Touchposé is a set of classes for iOS that renders screen touches when
 a device is connected to a mirrored display. Touchposé adds a
 transparent overlay to your app’s UI; all touch events cause
