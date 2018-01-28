@@ -43,22 +43,18 @@
 /// The QTouchposeFingerView is used to render a finger touches on the screen.
 @interface QTouchposeFingerView : UIView
 
-- (id)initWithPoint:(CGPoint)point;
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+
+- (instancetype)initWithPoint:(CGPoint)point
+    fingerViewBackgroundColor:(UIColor *)fingerViewBackgroundColor;
 
 @end
 
 @implementation QTouchposeFingerView
 
-#pragma mark - UIView
-
-- (id)initWithFrame:(CGRect __unused)frame
-{
-    return [self initWithPoint:(CGPoint){ 0.0f, 0.0f }];
-}
-
 #pragma mark - QTouchposeFingerView
 
-- (id)initWithPoint:(CGPoint)point
+- (id)initWithPoint:(CGPoint)point fingerViewBackgroundColor:(UIColor *)fingerViewBackgroundColor
 {
     const CGFloat kFingerRadius = 21.0f;
     
@@ -68,7 +64,8 @@
         self.layer.borderColor = [UIColor colorWithWhite:170.f / 255.f alpha:1.f].CGColor;
         self.layer.cornerRadius = kFingerRadius;
         self.layer.borderWidth = 1.f / [UIScreen mainScreen].scale;
-        self.layer.backgroundColor = [UIColor colorWithWhite:200.f / 255.f alpha:0.75f].CGColor;
+        self.layer.backgroundColor = fingerViewBackgroundColor ? fingerViewBackgroundColor.CGColor :
+            [UIColor colorWithWhite:200.f / 255.f alpha:0.75f].CGColor;
     }
     return self;
 }
@@ -225,7 +222,9 @@ static void UIWindow_new_didAddSubview(UIWindow *window, SEL _cmd, UIView *view)
         {
             if (fingerView == NULL)
             {
-                fingerView = [[QTouchposeFingerView alloc] initWithPoint:point];
+                fingerView =
+                    [[QTouchposeFingerView alloc] initWithPoint:point
+                                      fingerViewBackgroundColor:self.fingerViewBackgroundColor];
                 [_touchView addSubview:fingerView];
                 CFDictionarySetValue(_touchDictionary, (__bridge const void *)(touch), (__bridge const void *)(fingerView));
             }

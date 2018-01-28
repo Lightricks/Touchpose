@@ -21,4 +21,8 @@
 @property (nonatomic, assign) BOOL showTouchesWhenKeyboardShown;
 @property (nonatomic, assign) BOOL showOnlySingleFingerTouches;
 
+/// Finger view background color, Default value is \c nil, in which case white color with alpha 0.75
+/// is used.
+@property (strong, nonatomic, nullable) UIColor *fingerViewBackgroundColor;
+
 @end
